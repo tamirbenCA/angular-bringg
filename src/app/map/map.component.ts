@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { Location } from '../location';
 import { UserService } from '../user.service';
 
@@ -9,11 +12,13 @@ import { UserService } from '../user.service';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  lat: number = 32.106748;
-  lng: number = 34.8336526;
+  // lat: number = 32.106748;
+  // lng: number = 34.8336526;
   locations: Location[]
 
-  constructor(private userService: UserService) { }
+  constructor(  private userService: UserService ,
+                private route: ActivatedRoute ,
+                private router: Router) { }
 
   ngOnInit() {
     this.getLocations();
@@ -28,8 +33,16 @@ export class MapComponent implements OnInit {
   });
   }
 
-  clickedMarker(index: string) {
-    console.log(`clicked the marker: ${index}`)
+  clickedMarker(userId: string) {
+    console.log(`clicked the marker: ${userId}`)
+    this.router.navigate([`/detail/${userId}`])
   }
+
+  markerIconUrl(isActive) {
+    // if (isActive) return require('../assets/green-dot.png')
+    // else return require('../assets/red-dot.png')
+    if (isActive) return '../assets/green-dot.png'
+    else return '../assets/red-dot.png'
+}
 
 }

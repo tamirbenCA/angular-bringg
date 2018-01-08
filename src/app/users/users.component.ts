@@ -22,15 +22,31 @@ export class UsersComponent implements OnInit {
     .subscribe(users => this.users = users);
   }
  
-  // add(): void {
-  //   this.userService.addUser({ name } as User)
-  //     .subscribe(user => {
-  //       this.users.push(user);
-  //     });
-  // }
+  addUser(): void {
+    console.log('adding a user')
+    // this.userService.addUser({ name } as User)
+      // .subscribe(user => {
+        // this.users.push(user);
+      // });
+  }
  
   delete(user: User): void {
     this.users = this.users.filter(h => h !== user);
     this.userService.deleteUser(user).subscribe();
+  }
+
+  sortByAge(): void {
+    this.users = this.users.sort((a, b) => {
+      console.log('a', a.age)
+      console.log('b', b.age)
+      return a.age - b.age })
+    }
+
+  sortByName(): void {
+    this.users = this.users.sort((a, b) => {
+      console.log('a:', a.name.first)
+      console.log('b:', b.name.first)
+      return a.name.first - b.name.first
+    })
   }
 }
