@@ -1,5 +1,26 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
+
+
+// I wish to get this from https://www.json-generator.com
+// [
+//   '{{repeat(100, 120)}}',
+//   {
+//     _id: '{{objectId()}}',
+//     isActive: '{{bool()}}',
+//     picture: 'http://placehold.it/32x32',
+//     age: '{{integer(20, 40)}}',
+//     name: '{{firstName()}} {{surname()}}',
+//     email: '{{email()}}',
+//     latitude: '{{floating(-90.000001, 90)}}',
+//     longitude: '{{floating(-180.000001, 180)}}'
+//   }
+// ]
+// 
+// Whan adding a user send the same request but with NO repeats.
+
+
+
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const users = [
