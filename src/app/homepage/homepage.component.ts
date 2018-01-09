@@ -22,6 +22,7 @@ export class HomepageComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    console.log('init')
     this.getUsers()
   }
 

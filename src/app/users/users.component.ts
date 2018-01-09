@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
   }
  
   addUser(): void {
-    console.log('adding a user')
+    // console.log('adding a user')
     this.router.navigate([`/adduser`])
   }
  
