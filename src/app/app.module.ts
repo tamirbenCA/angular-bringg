@@ -14,6 +14,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserService } from './user.service';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { MapComponent } from './map/map.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -22,7 +23,8 @@ import { MapComponent } from './map/map.component';
     AppComponent,
     UsersComponent,
     UserDetailComponent,
-    MapComponent
+    MapComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

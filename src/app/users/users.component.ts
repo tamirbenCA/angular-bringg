@@ -2,7 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
  
 import { User } from '../user';
 import { UserService } from '../user.service';
-// import { EventEmitter } from '@angular/core/src/event_emitter';
+
+import { FILTERS } from '../app.component'
  
 @Component({
   selector: 'app-users',
@@ -10,8 +11,9 @@ import { UserService } from '../user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  @Input() users: object;
-  @Output() onDelete = new EventEmitter<object>();
+  @Input() users: Array<User>;
+  @Output() onDelete = new EventEmitter<User>();
+  @Output() setFilter = new EventEmitter<string>();
   
   constructor(private userService: UserService) { }
  
@@ -33,17 +35,19 @@ export class UsersComponent implements OnInit {
   }
 
   sortByAge(): void {
-    this.users = this.users.sort((a, b) => {
+    this.setFilter.emit(FILTERS.AGE)
+    // this.users = this.users.sort((a, b) => {
       // console.log('a', a.age)
       // console.log('b', b.age)
-      return a.age - b.age })
+      // return a.age - b.age })
     }
 
   sortByName(): void {
-    this.users = this.users.sort((a, b) => {
-      if(a.name.first.toLowerCase() < b.name.first.toLowerCase()) return -1;
-      if(a.name.first.toLowerCase() > b.name.first.toLowerCase()) return 1;
-      return 0;
-    })
+    this.setFilter.emit(FILTERS.NAME)
+    // this.users = this.users.sort((a, b) => {
+    //   if(a.name.first.toLowerCase() < b.name.first.toLowerCase()) return -1;
+    //   if(a.name.first.toLowerCase() > b.name.first.toLowerCase()) return 1;
+    //   return 0;
+    // })
   }
 }
