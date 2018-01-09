@@ -39,10 +39,10 @@ export class MapComponent implements OnInit {
   }
 
   markerIconUrl(isActive) {
-    // if (isActive) return require('../assets/green-dot.png')
-    // else return require('../assets/red-dot.png')
-    if (isActive) return '../assets/green-dot.png'
-    else return '../assets/red-dot.png'
+    if (isActive) return require('../assets/green-dot.png')
+    else return require('../assets/red-dot.png')
+    // if (isActive) return '../assets/green-dot.png'
+    // else return '../assets/red-dot.png'
 }
 
 }

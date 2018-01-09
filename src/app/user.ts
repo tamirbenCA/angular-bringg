@@ -3,7 +3,7 @@ export class User {
     isActive: boolean;
     picture: string;
     age: number;
-    name: object;
+    name: {first: any, last: any};
     email: string;
     latitude: number;
     longitude: number;
