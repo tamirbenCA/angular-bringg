@@ -4,9 +4,3 @@ h1 {
   color: #999;
   margin-bottom: 20px;
 }
-
-.main-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}

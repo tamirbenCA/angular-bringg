@@ -9,7 +9,7 @@
   <ul class="users">
     <li *ngFor="let user of users">
       <a routerLink="/detail/{{user.id}}">
-        {{user.name.first}} {{user.name.last}}
+        {{user.name}}
       </a>
       <button class="delete" title="delete user"
       (click)="delete(user)">x</button>

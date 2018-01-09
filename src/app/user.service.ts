@@ -19,6 +19,20 @@ export class UserService {
   constructor(
     private http: HttpClient) { }
  
+  // getEmptyUser(): User {
+  //   var emptyUser = {
+  //     name: '',
+  //     id: '',
+  //     isActive: '',
+  //     picture: '',
+  //     age: '',
+  //     email: '',
+  //     latitude: '',
+  //     longitude: ''
+  //   }
+  //   return emptyUser
+  // }
+
   /** GET users from the server */
   getUsers (): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl)

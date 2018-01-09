@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
  
 import { User } from '../user';
 import { UserService } from '../user.service';
 
-import { FILTERS } from '../app.component'
+import { SORTERS } from '../homepage/homepage.component'
  
 @Component({
   selector: 'app-users',
@@ -13,19 +14,17 @@ import { FILTERS } from '../app.component'
 export class UsersComponent implements OnInit {
   @Input() users: Array<User>;
   @Output() onDelete = new EventEmitter<User>();
-  @Output() setFilter = new EventEmitter<string>();
+  @Output() setSorter = new EventEmitter<string>();
   
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private router: Router) { }
  
   ngOnInit() {
   }
  
   addUser(): void {
     console.log('adding a user')
-    // this.userService.addUser({ name } as User)
-      // .subscribe(user => {
-        // this.users.push(user);
-      // });
+    this.router.navigate([`/adduser`])
   }
  
   delete(user: User): void {
@@ -35,7 +34,7 @@ export class UsersComponent implements OnInit {
   }
 
   sortByAge(): void {
-    this.setFilter.emit(FILTERS.AGE)
+    this.setSorter.emit(SORTERS.AGE)
     // this.users = this.users.sort((a, b) => {
       // console.log('a', a.age)
       // console.log('b', b.age)
@@ -43,10 +42,10 @@ export class UsersComponent implements OnInit {
     }
 
   sortByName(): void {
-    this.setFilter.emit(FILTERS.NAME)
+    this.setSorter.emit(SORTERS.NAME)
     // this.users = this.users.sort((a, b) => {
-    //   if(a.name.first.toLowerCase() < b.name.first.toLowerCase()) return -1;
-    //   if(a.name.first.toLowerCase() > b.name.first.toLowerCase()) return 1;
+    //   if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+    //   if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
     //   return 0;
     // })
   }

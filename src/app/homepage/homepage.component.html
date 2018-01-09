@@ -1,0 +1,5 @@
+ 
+<div class="main-body">
+    <app-map [locations]="locations"></app-map>
+    <app-users [users]="usersForDisplay" (onDelete)="onDelete($event)" (setSorter)="setSorter($event)"></app-users>
+</div>

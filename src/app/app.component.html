@@ -2,9 +2,5 @@
   <h1>{{ title }}</h1>
   
   <router-outlet></router-outlet>
-  
-  <div class="main-body">
-    <app-map [locations]="locations"></app-map>
-    <app-users [users]="usersForDisplay" (onDelete)="onDelete($event)" (setFilter)="setFilter($event)"></app-users>
-  </div>
+ 
 </div>
