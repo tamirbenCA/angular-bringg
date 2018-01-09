@@ -1,14 +1,5 @@
 /* UsersComponent's private CSS styles */
-.users-container {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .users {
-  height: 70vh;
-  overflow-y: scroll;
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
@@ -60,7 +51,7 @@
   border-radius: 4px 0 0 4px;
 }
  
-/* button {
+.button {
   background-color: #eee;
   border: none;
   padding: 5px 10px;
@@ -68,7 +59,11 @@
   cursor: pointer;
   cursor: hand;
   font-family: Arial;
-} */
+}
+ 
+button:hover {
+  background-color: #cfd8dc;
+}
  
 button.delete {
   /* position: relative; */
@@ -76,18 +71,4 @@ button.delete {
   /* top: -32px; */
   background-color: gray !important;
   color: white;
-}
-
-.btns-main {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
-}
-
-button:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
 }

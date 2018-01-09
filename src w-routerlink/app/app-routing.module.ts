@@ -7,9 +7,9 @@ import { MapComponent } from './map/map.component'
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/map', pathMatch: 'full' },
-  // { path: 'map', component: MapComponent },
-  // { path: 'users' , component: UsersComponent },
+  { path: '', redirectTo: '/map', pathMatch: 'full' },
+  { path: 'map', component: MapComponent },
+  { path: 'users' , component: UsersComponent },
   { path: 'detail/:id', component: UserDetailComponent }
 ]
 

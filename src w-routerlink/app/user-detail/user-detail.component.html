@@ -1,0 +1,11 @@
+<div *ngIf="user">
+    <h2>{{ user.name.first | uppercase }} {{ user.name.last | uppercase }} Details</h2>
+    <div><span>id: </span>{{user.id}}</div>
+    <div><span>name: </span>{{user.name.first}} {{user.name.last}}</div>
+    <div><span>isActive: </span>{{user.isActive}}</div>
+    <div><span>age: </span>{{user.age}}</div>
+    <div><span>email: </span>{{user.email}}</div>
+    <div><span>location: </span>lat: {{user.latitude}} long: {{user.longitude}}</div>
+    
+    <button (click)="goBack()">go back</button>
+  </div>
