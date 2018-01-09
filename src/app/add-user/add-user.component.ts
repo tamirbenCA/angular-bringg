@@ -19,11 +19,22 @@ export class AddUserComponent implements OnInit {
               private router: Router) { }
 
   save(): void {
+    this.user.name = this.capitalizeName(this.user.name)
     this.userService.addUser(this.user as User)
       .subscribe(user => {
         this.router.navigate([`/`])
         // this.users.push(user);
       });
+  }
+
+  capitalizeName(str): string {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map(word => {
+        return word[0].toUpperCase() + word.substr(1)
+      })
+      .join(' ');
   }
 
   ngOnInit(): void {
