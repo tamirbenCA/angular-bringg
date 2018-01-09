@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-
-import { Location } from '../location';
-import { UserService } from '../user.service';
-
 
 @Component({
   selector: 'app-map',
@@ -14,23 +10,13 @@ import { UserService } from '../user.service';
 export class MapComponent implements OnInit {
   // lat: number = 32.106748;
   // lng: number = 34.8336526;
-  locations: Location[]
+  @Input() locations: object;
 
-  constructor(  private userService: UserService ,
-                private route: ActivatedRoute ,
+
+  constructor(  private route: ActivatedRoute ,
                 private router: Router) { }
 
   ngOnInit() {
-    this.getLocations();
-  }
-
-  getLocations(): void {
-    this.userService.getUsers()
-    .subscribe(locations => {
-      this.locations = locations.map(location => {
-        return {lat: +location.latitude, lng: +location.longitude, isActive: location.isActive, id: location.id}
-      })
-  });
   }
 
   clickedMarker(userId: string) {

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
  
 import { User } from '../user';
 import { UserService } from '../user.service';
+// import { EventEmitter } from '@angular/core/src/event_emitter';
  
 @Component({
   selector: 'app-users',
@@ -9,17 +10,12 @@ import { UserService } from '../user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: User[];
- 
+  @Input() users: object;
+  @Output() onDelete = new EventEmitter<object>();
+  
   constructor(private userService: UserService) { }
  
   ngOnInit() {
-    this.getUsers();
-  }
- 
-  getUsers(): void {
-    this.userService.getUsers()
-    .subscribe(users => this.users = users);
   }
  
   addUser(): void {
@@ -31,14 +27,15 @@ export class UsersComponent implements OnInit {
   }
  
   delete(user: User): void {
-    this.users = this.users.filter(h => h !== user);
-    this.userService.deleteUser(user).subscribe();
+    this.onDelete.emit(user)
+    // this.users = this.users.filter(h => h !== user);
+    // this.userService.deleteUser(user).subscribe();
   }
 
   sortByAge(): void {
     this.users = this.users.sort((a, b) => {
-      console.log('a', a.age)
-      console.log('b', b.age)
+      // console.log('a', a.age)
+      // console.log('b', b.age)
       return a.age - b.age })
     }
 

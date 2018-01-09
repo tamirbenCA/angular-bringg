@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <router-outlet></router-outlet>
   <div class="main-body">
-    <app-map></app-map>
-    <app-users></app-users>
+    <app-map [locations]="locations"></app-map>
+    <app-users [users]="users" (onDelete)="onDelete($event)"></app-users>
   </div>
 </div>
