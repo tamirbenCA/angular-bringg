@@ -1,21 +1,22 @@
 <div>
     <h1>Add User</h1>
-    <div>
-      <label>ID:
-        <input [(ngModel)]="user.id" placeholder="id"/>
-      </label>
-    </div>   
-    <div>
-      <label>Name:
-        <input [(ngModel)]="user.name" placeholder="name"/>
-      </label>
-    </div>
-    <div>
-        <label>Email:
-          <input [(ngModel)]="user.email" placeholder="Email"/>
+    <div class=add-form>
+      <div>
+        <label>ID:
+          <input [(ngModel)]="user.id" placeholder="id"/>
+        </label>
+      </div>   
+      <div>
+        <label>Name:
+          <input [(ngModel)]="user.name" placeholder="name"/>
         </label>
       </div>
-
+      <div>
+          <label>Email:
+            <input [(ngModel)]="user.email" placeholder="email"/>
+          </label>
+        </div>
+      </div>
       <button (click)="save()">save</button>
       <button (click)="goBack()">cancel</button>
   </div>

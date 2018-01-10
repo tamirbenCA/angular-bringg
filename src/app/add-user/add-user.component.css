@@ -11,3 +11,21 @@ button:hover {
     color: #039be5;
     background-color: #CFD8DC;
 }
+
+input {
+    padding: 5px;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    padding: 5px;
+    align-items: center;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
