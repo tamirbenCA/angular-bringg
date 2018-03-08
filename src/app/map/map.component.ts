@@ -18,7 +18,7 @@ export class MapComponent implements OnInit {
   }
 
   clickedMarker(userId: string) {
-    // console.log(`clicked the marker: ${userId}`)
+    console.log(`clicked the marker: ${userId}`)
     this.router.navigate([`/detail/${userId}`])
   }
 
